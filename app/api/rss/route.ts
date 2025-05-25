@@ -19,9 +19,7 @@ type CustomFeedItem = {
   };
 };
 
-// FIXME
-// eslint-disable-next-line @typescript-eslint/ban-types
-const parser: Parser<{}, CustomFeedItem> = new Parser({
+const parser: Parser<unknown, CustomFeedItem> = new Parser({
   customFields: {
     item: [
       "media:thumbnail",
