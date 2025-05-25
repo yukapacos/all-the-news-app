@@ -19,6 +19,8 @@ type CustomFeedItem = {
   };
 };
 
+// FIXME
+// eslint-disable-next-line @typescript-eslint/ban-types
 const parser: Parser<{}, CustomFeedItem> = new Parser({
   customFields: {
     item: [
