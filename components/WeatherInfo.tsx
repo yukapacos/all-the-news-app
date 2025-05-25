@@ -1,6 +1,8 @@
 import { Loader2 } from "lucide-react";
 
 type Props = {
+  // FIXME
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   weather: any;
   loading: boolean;
 };

@@ -10,6 +10,8 @@ export default function Home() {
   const [location, setLocation] = useState<{ lat: number; lon: number } | null>(
     null
   );
+  // FIXME
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [weather, setWeather] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 

@@ -60,6 +60,8 @@ type FeedItem =
 
 export default function NewsPage() {
   const [tab, setTab] = useState(0);
+  // FIXME
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [items, setItems] = useState<any[]>([]);
   const [readLinks, setReadLinks] = useState<Set<string>>(new Set());
   const [showUnreadOnly, setShowUnreadOnly] = useState(false);
@@ -125,6 +127,8 @@ export default function NewsPage() {
   };
 
   // TODO: remove
+  // FIXME
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const extractImageUrl = (item: any): string | null => {
     console.log("debug item", item);
 
@@ -223,6 +227,8 @@ export default function NewsPage() {
             ].map(({ label, value }) => (
               <button
                 key={value}
+                // FIXME
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 onClick={() => setFilterType(value as any)}
                 className={`px-2 py-1 rounded text-xs border ${
                   filterType === value
