@@ -8,6 +8,7 @@ import {
   Train,
   Clapperboard,
   Monitor,
+  ShoppingBag,
 } from "lucide-react";
 import VideoCard from "./VideoCard";
 
@@ -48,9 +49,9 @@ const rssFeeds: FeedItem[] = [
     url: "https://zenn.dev/feed",
   },
   {
-    label: "動画",
-    icon: <Monitor size={16} />,
-    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCyHdFYJyt4Ihwuscuk5ALJA",
+    label: "ショッピング",
+    icon: <ShoppingBag size={16} />,
+    url: "https://k.xpg.jp/feed.xml",
   },
 ];
 
