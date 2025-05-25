@@ -129,30 +129,30 @@ export default function NewsPage() {
   // TODO: remove
   // FIXME
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const extractImageUrl = (item: any): string | null => {
-    console.log("debug item", item);
+  // const extractImageUrl = (item: any): string | null => {
+  //   console.log("debug item", item);
 
-    // media:group にネストされているケース (YouTube)
-    const mediaGroup = item["media:group"];
-    if (mediaGroup) {
-      if (mediaGroup["media:thumbnail"]?.[0]?.url) {
-        return mediaGroup["media:thumbnail"][0].url;
-      }
-      if (mediaGroup["media:content"]?.[0]?.url) {
-        return mediaGroup["media:content"][0].url;
-      }
-    }
+  //   // media:group にネストされているケース (YouTube)
+  //   const mediaGroup = item["media:group"];
+  //   if (mediaGroup) {
+  //     if (mediaGroup["media:thumbnail"]?.[0]?.url) {
+  //       return mediaGroup["media:thumbnail"][0].url;
+  //     }
+  //     if (mediaGroup["media:content"]?.[0]?.url) {
+  //       return mediaGroup["media:content"][0].url;
+  //     }
+  //   }
 
-    // フラットな構造のケース
-    if (item["media:thumbnail"]?.url) return item["media:thumbnail"].url;
-    if (item["media:content"]?.url) return item["media:content"].url;
-    if (item.enclosure?.url) return item.enclosure.url;
+  //   // フラットな構造のケース
+  //   if (item["media:thumbnail"]?.url) return item["media:thumbnail"].url;
+  //   if (item["media:content"]?.url) return item["media:content"].url;
+  //   if (item.enclosure?.url) return item.enclosure.url;
 
-    // TODO: use this
-    // HTML内のimgタグから抽出
-    const match = item.content?.match(/<img[^>]+src="([^">]+)"/);
-    return match?.[1] || null;
-  };
+  //   // TODO: use this
+  //   // HTML内のimgタグから抽出
+  //   const match = item.content?.match(/<img[^>]+src="([^">]+)"/);
+  //   return match?.[1] || null;
+  // };
 
   const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
