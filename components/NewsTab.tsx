@@ -6,6 +6,7 @@ import VideoCard from "./VideoCard";
 import Toolbar from "./Toolbar";
 import FeedTabs from "./FeedTabs";
 import { rssFeeds } from "@/app/data/rssFeeds";
+import { formatDate } from "@/app/util/formatDate";
 
 export default function NewsPage() {
   const [tab, setTab] = useState(0);
@@ -99,21 +100,6 @@ export default function NewsPage() {
   //   const match = item.content?.match(/<img[^>]+src="([^">]+)"/);
   //   return match?.[1] || null;
   // };
-
-  const formatDate = (dateString: string): string => {
-    const date = new Date(dateString);
-    if (isNaN(date.getTime())) {
-      return "日時不明";
-    }
-    return new Intl.DateTimeFormat("ja-JP", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    }).format(date);
-  };
 
   const visibleItems = items.filter((item) => {
     const isUnread = !readLinks.has(item.link);
