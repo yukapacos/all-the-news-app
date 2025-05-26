@@ -34,7 +34,7 @@ npm install
 ```
 
 3. （任意）天気情報の表示を有効にする:
-   app/page.tsx にて、 NEXT_PUBLIC_OPENWEATHER_API_KEY を使って [OpenWeatherMap API](https://openweathermap.org/) から現在の天気情報を取得しています.
+   app/page.tsx にて、 環境変数 NEXT_PUBLIC_OPENWEATHER_API_KEY を使って [OpenWeatherMap API](https://openweathermap.org/) から現在の天気情報を取得しています。
    この機能を有効にするには:
 
 - OpenWeatherMap で無料アカウントを作成
