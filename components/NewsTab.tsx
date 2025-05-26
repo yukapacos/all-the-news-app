@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import VideoCard from "./VideoCard";
 import Toolbar from "./Toolbar";
+import FeedTabs from "./FeedTabs";
 
 const rssFeeds: FeedItem[] = [
   {
@@ -184,22 +185,11 @@ export default function NewsPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6 space-y-4">
-      <div className="flex gap-2 flex-wrap">
-        {rssFeeds.map((feed, i) => (
-          <button
-            key={feed.label}
-            onClick={() => setTab(i)}
-            className={`flex items-center gap-1 text-sm px-3 py-1 rounded-full border transition-colors ${
-              i === tab
-                ? "bg-black text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-            }`}
-          >
-            {feed.icon}
-            <span>{feed.label}</span>
-          </button>
-        ))}
-      </div>
+      <FeedTabs
+        feeds={rssFeeds}
+        selectedTab={tab}
+        onSelect={(i) => setTab(i)}
+      />
       <Toolbar
         showUnreadOnly={showUnreadOnly}
         onToggleUnreadOnly={() => setShowUnreadOnly((prev) => !prev)}
