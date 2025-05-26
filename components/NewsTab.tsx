@@ -11,6 +11,7 @@ import {
   ShoppingBag,
 } from "lucide-react";
 import VideoCard from "./VideoCard";
+import Toolbar from "./Toolbar";
 
 const rssFeeds: FeedItem[] = [
   {
@@ -199,59 +200,13 @@ export default function NewsPage() {
           </button>
         ))}
       </div>
-
-      <div className="flex flex-wrap items-center justify-between mt-2 gap-4">
-        <div className="flex items-center gap-4">
-          {/* 未読のみ表示トグル */}
-          <label className="flex items-center gap-2 text-sm cursor-pointer">
-            <span className="text-gray-700">未読のみ</span>
-            <div
-              className={`w-10 h-5 flex items-center rounded-full p-1 transition-colors duration-300 cursor-pointer ${
-                showUnreadOnly ? "bg-black" : "bg-gray-300"
-              }`}
-              onClick={() => setShowUnreadOnly((prev) => !prev)}
-            >
-              <div
-                className={`bg-white w-4 h-4 rounded-full shadow-md transform transition-transform duration-300 ${
-                  showUnreadOnly ? "translate-x-5" : ""
-                }`}
-              />
-            </div>
-          </label>
-
-          {/* フィルター切り替えボタン */}
-          <div className="flex gap-2">
-            {[
-              { label: "すべて", value: "all" },
-              { label: "記事のみ", value: "articles" },
-              { label: "動画のみ", value: "videos" },
-            ].map(({ label, value }) => (
-              <button
-                key={value}
-                // FIXME
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                onClick={() => setFilterType(value as any)}
-                className={`px-2 py-1 rounded text-xs border ${
-                  filterType === value
-                    ? "bg-black text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* 既読リセット */}
-        <button
-          onClick={clearReadLinks}
-          className="text-sm text-red-500 hover:underline"
-        >
-          既読履歴をリセット
-        </button>
-      </div>
-
+      <Toolbar
+        showUnreadOnly={showUnreadOnly}
+        onToggleUnreadOnly={() => setShowUnreadOnly((prev) => !prev)}
+        filterType={filterType}
+        onFilterChange={(val) => setFilterType(val)}
+        onClearReadLinks={clearReadLinks}
+      />
       <ul className="space-y-4">
         {visibleItems.length === 0 ? (
           <div className="text-center text-gray-500 text-sm mt-8 flex flex-col items-center gap-2">
