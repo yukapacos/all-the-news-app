@@ -135,7 +135,7 @@ export default function NewsPage() {
       <ul className="space-y-4">
         {isLoading ? (
           <div className="flex justify-center py-10">
-            return <Loader2 className="animate-spin w-4 h-4 text-gray-500" />;
+            <Loader2 className="animate-spin w-4 h-4 text-gray-500" />
           </div>
         ) : visibleItems.length === 0 ? (
           <div className="text-center text-gray-500 text-sm mt-8 flex flex-col items-center gap-2">

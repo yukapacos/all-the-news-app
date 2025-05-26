@@ -5,6 +5,7 @@ import {
   Clapperboard,
   Monitor,
   ShoppingBag,
+  Globe,
 } from "lucide-react";
 
 import { FeedItem } from "@/types/FeedItem";
@@ -19,12 +20,29 @@ export const rssFeeds: FeedItem[] = [
     ],
   },
   {
+    label: "IT",
+    icon: <Monitor size={16} />,
+    urls: [
+      "https://zenn.dev/feed",
+      "https://www.publickey1.jp/atom.xml",
+      "https://menthas.com/all/rss",
+    ],
+  },
+  {
     label: "本",
     icon: <BookOpen size={16} />,
     urls: [
       "https://www.webdoku.jp/atom.xml",
       "https://dain.cocolog-nifty.com/myblog/atom.xml",
-      "https://www.youtube.com/feeds/videos.xml?channel_id=UCmKlo3BXt60nzgk2r_JgvwQ",
+      "https://www.iwanami.co.jp/rss/news/",
+    ],
+  },
+  {
+    label: "エンタメ",
+    icon: <Clapperboard size={16} />,
+    urls: [
+      "https://natalie.mu/comic/feed/news/",
+      "https://news.denfaminicogamer.jp/feed",
     ],
   },
   {
@@ -36,18 +54,8 @@ export const rssFeeds: FeedItem[] = [
     ],
   },
   {
-    label: "エンタメ",
-    icon: <Clapperboard size={16} />,
-    urls: ["https://natalie.mu/comic/feed/news/"],
-  },
-  {
-    label: "IT",
-    icon: <Monitor size={16} />,
-    urls: ["https://zenn.dev/feed"],
-  },
-  {
-    label: "ショッピング",
-    icon: <ShoppingBag size={16} />,
-    urls: ["https://k.xpg.jp/feed.xml"],
+    label: "インターネット",
+    icon: <Globe size={16} />,
+    urls: ["https://b.hatena.ne.jp/hotentry.rss"],
   },
 ];
