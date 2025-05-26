@@ -36,7 +36,7 @@ const metadata: Metadata = {
     title: "Simple News Feed",
     description: "シンプルなニュースフィードのデモです",
     images: ["https://news-feed.yukaten.com/favicon.ico"],
-    // site: "",
+    // site: "", // 一旦コメントアウト
   },
 };
 
