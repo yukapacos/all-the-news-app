@@ -23,7 +23,7 @@ I built this out of curiosity because I really enjoy reading RSS feeds.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/simple-news-feed.git
+git clone https://github.com/yukapacos/all-the-news-app.git
 cd all-the-news-app
 ```
 

@@ -17,9 +17,12 @@ export default function WeatherInfo({ weather, loading }: Props) {
   }
 
   const icon = weather.weather?.[0]?.icon;
-  const temp = Math.round(weather.main.temp);
+  const temp =
+    weather.main?.temp !== undefined ? Math.round(weather.main.temp) : null;
   const desc = weather.weather?.[0]?.description;
   const city = weather.name;
+
+  if (temp == null) return <div className="text-xs">天気情報取得失敗</div>;
 
   return (
     <div className="flex items-center gap-1 text-sm text-gray-700">
