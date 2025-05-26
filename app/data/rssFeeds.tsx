@@ -4,7 +4,6 @@ import {
   Train,
   Clapperboard,
   Monitor,
-  ShoppingBag,
   Globe,
 } from "lucide-react";
 
