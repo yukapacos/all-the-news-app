@@ -1,65 +1,11 @@
 "use client";
 
-import { ReactElement, useEffect, useState } from "react";
-import {
-  Inbox,
-  Newspaper,
-  BookOpen,
-  Train,
-  Clapperboard,
-  Monitor,
-  ShoppingBag,
-} from "lucide-react";
+import { useEffect, useState } from "react";
+import { Inbox } from "lucide-react";
 import VideoCard from "./VideoCard";
 import Toolbar from "./Toolbar";
 import FeedTabs from "./FeedTabs";
-
-const rssFeeds: FeedItem[] = [
-  {
-    label: "ニュース",
-    icon: <Newspaper size={16} />,
-    urls: [
-      "https://www.nhk.or.jp/rss/news/cat0.xml",
-      "https://www.youtube.com/feeds/videos.xml?channel_id=UCGCZAYq5Xxojl_tSXcVJhiQ",
-    ],
-  },
-  {
-    label: "本",
-    icon: <BookOpen size={16} />,
-    urls: [
-      "https://www.webdoku.jp/atom.xml",
-      "https://dain.cocolog-nifty.com/myblog/atom.xml",
-      "https://www.youtube.com/feeds/videos.xml?channel_id=UCmKlo3BXt60nzgk2r_JgvwQ",
-    ],
-  },
-  {
-    label: "乗りもの",
-    icon: <Train size={16} />,
-    urls: [
-      "https://assets.wor.jp/rss/rdf/trafficnews/top.rdf",
-      "https://www.youtube.com/feeds/videos.xml?channel_id=UCXJ7UIYKcWnikgfGEHs3SRA",
-    ],
-  },
-  {
-    label: "エンタメ",
-    icon: <Clapperboard size={16} />,
-    url: "https://natalie.mu/comic/feed/news/",
-  },
-  {
-    label: "IT",
-    icon: <Monitor size={16} />,
-    url: "https://zenn.dev/feed",
-  },
-  {
-    label: "ショッピング",
-    icon: <ShoppingBag size={16} />,
-    url: "https://k.xpg.jp/feed.xml",
-  },
-];
-
-type FeedItem =
-  | { label: string; url: string; icon: ReactElement }
-  | { label: string; urls: string[]; icon: ReactElement };
+import { rssFeeds } from "@/app/data/rssFeeds";
 
 export default function NewsPage() {
   const [tab, setTab] = useState(0);
@@ -212,7 +158,6 @@ export default function NewsPage() {
             const imageUrl = item.thumbnail;
             const isRead = readLinks.has(item.link);
             const videoId = item.videoId;
-
             return (
               <li key={i} className="flex flex-col gap-2 border-b pb-4">
                 {/* YouTube埋め込み */}
