@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Inbox } from "lucide-react";
+import { Inbox, Loader2 } from "lucide-react";
 import VideoCard from "./VideoCard";
 import Toolbar from "./Toolbar";
 import FeedTabs from "./FeedTabs";
@@ -18,6 +18,7 @@ export default function NewsPage() {
   const [filterType, setFilterType] = useState<"all" | "articles" | "videos">(
     "all"
   );
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem("showUnreadOnly");
@@ -40,18 +41,23 @@ export default function NewsPage() {
 
   useEffect(() => {
     const fetchRSS = async () => {
-      const feed = rssFeeds[tab];
-      const results = await Promise.all(
-        feed.urls.map((url) =>
-          fetch(`/api/rss?url=${encodeURIComponent(url)}`).then((res) =>
-            res.json()
+      setIsLoading(true);
+      try {
+        const feed = rssFeeds[tab];
+        const results = await Promise.all(
+          feed.urls.map((url) =>
+            fetch(`/api/rss?url=${encodeURIComponent(url)}`).then((res) =>
+              res.json()
+            )
           )
-        )
-      );
-      const merged = results.flat().sort((a, b) => {
-        return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
-      });
-      setItems(merged);
+        );
+        const merged = results.flat().sort((a, b) => {
+          return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
+        });
+        setItems(merged);
+      } finally {
+        setIsLoading(false);
+      }
     };
     fetchRSS();
   }, [tab]);
@@ -127,7 +133,11 @@ export default function NewsPage() {
         onClearReadLinks={clearReadLinks}
       />
       <ul className="space-y-4">
-        {visibleItems.length === 0 ? (
+        {isLoading ? (
+          <div className="flex justify-center py-10">
+            return <Loader2 className="animate-spin w-4 h-4 text-gray-500" />;
+          </div>
+        ) : visibleItems.length === 0 ? (
           <div className="text-center text-gray-500 text-sm mt-8 flex flex-col items-center gap-2">
             <Inbox className="w-8 h-8 text-gray-400" />
             <p>
