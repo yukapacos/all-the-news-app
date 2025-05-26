@@ -31,7 +31,7 @@ export default function VideoCard({
       <div className="w-full aspect-video mb-2 relative bg-gray-100 rounded overflow-hidden">
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center">
-            return <Loader2 className="animate-spin w-4 h-4 text-gray-500" />;
+            <Loader2 className="animate-spin w-4 h-4 text-gray-500" />
           </div>
         )}
 
