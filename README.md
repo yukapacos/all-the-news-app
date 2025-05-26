@@ -33,15 +33,28 @@ cd all-the-news-app
 npm install
 ```
 
-3. Start the development server:
+3. (Optional) Enable weather display:
+   In app/page.tsx, the app uses NEXT_PUBLIC_OPENWEATHER_API_KEY to fetch current weather information from the [OpenWeatherMap API](https://openweathermap.org/).
+   To enable this feature:
+
+- Create a free account on OpenWeatherMap
+- Subscribe to the free plan
+- Generate an API key
+- Add the following line to your .env.local file:
+
+```bash
+NEXT_PUBLIC_OPENWEATHER_API_KEY=your_api_key_here
+```
+
+4. Start the development server:
 
 ```bash
 npm run dev
 ```
 
-4. Open your browser and go to http://localhost:3000
+5. Open your browser and go to http://localhost:3000
 
-5. You can customize the RSS sources by editing app/data/rssFeeds.tsx.
+6. You can customize the RSS sources by editing app/data/rssFeeds.tsx.
 
 ```
 // Example
@@ -54,8 +67,6 @@ npm run dev
   ],
 }
 ```
-
-6.
 
 ## 📄 License
 
