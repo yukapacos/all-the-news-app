@@ -1,15 +1,15 @@
 # all-the-news-app
 
-A simple news feed app.  
-I built this out of curiosity because I really enjoy reading RSS feeds.
+シンプルなニュースフィードアプリです。
+RSS フィードが好きなので、試しに自作してみました。
 
-## 🌐 Demo
+## 🌐 デモ
 
 [https://news-feed.yukaten.com/](https://news-feed.yukaten.com/)
 
 ![Demo](https://news-feed.yukaten.com/demo.png)
 
-## 🛠 Tech Stack
+## 🛠 技術スタック
 
 - [Next.js 15 (App Router)](https://nextjs.org/)
 - [React 19](https://react.dev/)
@@ -18,48 +18,48 @@ I built this out of curiosity because I really enjoy reading RSS feeds.
 - [Lucide React](https://lucide.dev/icons/)
 - [RSS Parser](https://www.npmjs.com/package/rss-parser)
 
-## 🚀 How to Run Locally
+## 🚀 ローカルでの実行
 
-1. Clone the repository:
+1. リポジトリをクローン:
 
 ```bash
 git clone https://github.com/yukapacos/all-the-news-app.git
 cd all-the-news-app
 ```
 
-2. Install dependencies:
+2. 依存関係をインストール:
 
 ```bash
 npm install
 ```
 
-3. (Optional) Enable weather display:
-   In app/page.tsx, the app uses NEXT_PUBLIC_OPENWEATHER_API_KEY to fetch current weather information from the [OpenWeatherMap API](https://openweathermap.org/).
-   To enable this feature:
+3. （任意）天気情報の表示を有効にする:
+   app/page.tsx にて、 NEXT_PUBLIC_OPENWEATHER_API_KEY を使って [OpenWeatherMap API](https://openweathermap.org/) から現在の天気情報を取得しています.
+   この機能を有効にするには:
 
-- Create a free account on OpenWeatherMap
-- Subscribe to the free plan
-- Generate an API key
-- Add the following line to your .env.local file:
+- OpenWeatherMap で無料アカウントを作成
+- 無料プランに登録
+- API キーを取得
+- .env.local ファイルを作成して、以下の行を追加:
 
 ```bash
-NEXT_PUBLIC_OPENWEATHER_API_KEY=your_api_key_here
+NEXT_PUBLIC_OPENWEATHER_API_KEY=(API キー)
 ```
 
-4. Start the development server:
+4. 開発サーバーを起動:
 
 ```bash
 npm run dev
 ```
 
-5. Open your browser and go to http://localhost:3000
+5. ブラウザで http://localhost:3000 にアクセス
 
-6. You can customize the RSS sources by editing app/data/rssFeeds.tsx.
+6. RSS の取得元は app/data/rssFeeds.tsx を編集してカスタマイズできます:
 
 ```
-// Example
+// 例
 {
-  label: "News",
+  label: "ニュース",
   icon: <Newspaper size={16} />,
   urls: [
     "https://www.nhk.or.jp/rss/news/cat0.xml",
@@ -68,6 +68,6 @@ npm run dev
 }
 ```
 
-## 📄 License
+## 📄 ライセンス
 
 MIT
