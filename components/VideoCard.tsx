@@ -19,7 +19,6 @@ export default function VideoCard({
 
   return (
     <div className="p-2 bg-white">
-      {/* タイトル */}
       <h2
         className={`text-sm font-semibold mb-2 ${
           isRead ? "text-gray-400 line-through" : "text-gray-800"
@@ -27,7 +26,6 @@ export default function VideoCard({
       >
         {title}
       </h2>
-
       {/* 動画埋め込み or スピナー */}
       <div className="w-full aspect-video mb-2 relative bg-gray-100 rounded overflow-hidden">
         {loading && (
@@ -47,8 +45,6 @@ export default function VideoCard({
           onLoad={() => setLoading(false)}
         />
       </div>
-
-      {/* 説明 */}
       {description && (
         <p
           className={`text-sm mb-1 line-clamp-3 ${
@@ -58,8 +54,6 @@ export default function VideoCard({
           {description}
         </p>
       )}
-
-      {/* 投稿日 */}
       {pubDate && (
         <p className="text-xs text-gray-400">
           {new Date(pubDate).toLocaleString("ja-JP")}

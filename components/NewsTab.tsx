@@ -55,7 +55,6 @@ export default function NewsPage() {
       } else {
         const res = await fetch(`/api/rss?url=${encodeURIComponent(feed.url)}`);
         const data = await res.json();
-        console.log("debug result", data);
         setItems(data);
       }
     };
@@ -63,7 +62,6 @@ export default function NewsPage() {
   }, [tab]);
 
   const markAsRead = (link: string) => {
-    console.log("debug link", link);
     const updated = new Set(readLinks);
     updated.add(link);
     setReadLinks(updated);
@@ -79,7 +77,6 @@ export default function NewsPage() {
   // FIXME
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   // const extractImageUrl = (item: any): string | null => {
-  //   console.log("debug item", item);
 
   //   // media:group にネストされているケース (YouTube)
   //   const mediaGroup = item["media:group"];
@@ -174,7 +171,7 @@ export default function NewsPage() {
                       title={item.title}
                       description={item.description}
                       pubDate={item.pubDate}
-                      isRead={readLinks.has(item.link)} // ← ここで既読判定を渡す
+                      isRead={readLinks.has(item.link)}
                     />
                   </a>
                 ) : (

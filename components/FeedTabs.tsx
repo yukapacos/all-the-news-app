@@ -1,8 +1,4 @@
-import { ReactElement } from "react";
-
-type FeedItem =
-  | { label: string; url: string; icon: ReactElement }
-  | { label: string; urls: string[]; icon: ReactElement };
+import { FeedItem } from "@/types/rss";
 
 type Props = {
   feeds: FeedItem[];
