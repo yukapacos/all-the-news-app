@@ -1,4 +1,4 @@
-import { FeedItem } from "@/types/rss";
+import { FeedItem } from "@/types/FeedItem";
 
 type Props = {
   feeds: FeedItem[];

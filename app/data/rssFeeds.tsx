@@ -7,7 +7,7 @@ import {
   ShoppingBag,
 } from "lucide-react";
 
-import { FeedItem } from "@/types/rss";
+import { FeedItem } from "@/types/FeedItem";
 
 export const rssFeeds: FeedItem[] = [
   {
@@ -38,16 +38,16 @@ export const rssFeeds: FeedItem[] = [
   {
     label: "エンタメ",
     icon: <Clapperboard size={16} />,
-    url: "https://natalie.mu/comic/feed/news/",
+    urls: ["https://natalie.mu/comic/feed/news/"],
   },
   {
     label: "IT",
     icon: <Monitor size={16} />,
-    url: "https://zenn.dev/feed",
+    urls: ["https://zenn.dev/feed"],
   },
   {
     label: "ショッピング",
     icon: <ShoppingBag size={16} />,
-    url: "https://k.xpg.jp/feed.xml",
+    urls: ["https://k.xpg.jp/feed.xml"],
   },
 ];

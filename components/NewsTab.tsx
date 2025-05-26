@@ -41,23 +41,17 @@ export default function NewsPage() {
   useEffect(() => {
     const fetchRSS = async () => {
       const feed = rssFeeds[tab];
-      if ("urls" in feed) {
-        const results = await Promise.all(
-          feed.urls.map((url) =>
-            fetch(`/api/rss?url=${encodeURIComponent(url)}`).then((res) =>
-              res.json()
-            )
+      const results = await Promise.all(
+        feed.urls.map((url) =>
+          fetch(`/api/rss?url=${encodeURIComponent(url)}`).then((res) =>
+            res.json()
           )
-        );
-        const merged = results.flat().sort((a, b) => {
-          return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
-        });
-        setItems(merged);
-      } else {
-        const res = await fetch(`/api/rss?url=${encodeURIComponent(feed.url)}`);
-        const data = await res.json();
-        setItems(data);
-      }
+        )
+      );
+      const merged = results.flat().sort((a, b) => {
+        return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
+      });
+      setItems(merged);
     };
     fetchRSS();
   }, [tab]);

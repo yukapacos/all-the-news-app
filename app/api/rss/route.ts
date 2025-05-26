@@ -1,7 +1,6 @@
 import { NextRequest } from "next/server";
 import Parser, { CustomFieldItem } from "rss-parser";
 
-// カスタムフィールドを明示
 type CustomFeedItem = {
   title: string;
   link: string;
