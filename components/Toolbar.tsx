@@ -11,8 +11,8 @@ export default function Toolbar({
   onToggleUnreadOnly,
   filterType,
   onFilterChange,
-  onClearReadLinks,
-}: Props) {
+}: // onClearReadLinks, // 一旦コメントアウト
+Props) {
   return (
     <div className="flex flex-wrap items-center justify-between mt-2 gap-4">
       <div className="flex items-center gap-4">
@@ -53,12 +53,13 @@ export default function Toolbar({
           ))}
         </div>
       </div>
-      <button
+      {/* 一旦コメントアウト */}
+      {/* <button
         onClick={onClearReadLinks}
         className="text-sm text-red-500 hover:underline"
       >
         既読履歴をリセット
-      </button>
+      </button> */}
     </div>
   );
 }

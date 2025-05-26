@@ -56,6 +56,12 @@ export default function NewsPage() {
     fetchRSS();
   }, [tab]);
 
+  const openLink = (link: string) => {
+    markAsRead(link);
+
+    window.open(link, "_blank", "noopener,noreferrer");
+  };
+
   const markAsRead = (link: string) => {
     const updated = new Set(readLinks);
     updated.add(link);
@@ -141,9 +147,10 @@ export default function NewsPage() {
                 {videoId ? (
                   <a
                     href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => markAsRead(item.link)}
+                    onClick={(e) => {
+                      e.preventDefault(); // デフォルトの遷移を止める
+                      openLink(item.link); // 既読処理内で window.open 実行
+                    }}
                     className="block"
                   >
                     <VideoCard
@@ -166,9 +173,10 @@ export default function NewsPage() {
                     <div className="flex-1">
                       <a
                         href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => markAsRead(item.link)}
+                        onClick={(e) => {
+                          e.preventDefault(); // デフォルトの遷移を止める
+                          openLink(item.link); // 既読処理内で window.open 実行
+                        }}
                         className={`block text-sm font-semibold hover:underline ${
                           isRead
                             ? "text-gray-400 line-through"
@@ -191,7 +199,7 @@ export default function NewsPage() {
                 {!isRead && (
                   <button
                     onClick={() => markAsRead(item.link)}
-                    className="self-end text-xs text-gray-600 hover:underline"
+                    className="self-end text-xs text-black hover:underline"
                   >
                     既読にする
                   </button>

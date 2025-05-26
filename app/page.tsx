@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { CalendarDays, Clock, Sun } from "lucide-react";
 import CurrentTime from "@/components/CurrentTime";
 import WeatherInfo from "@/components/WeatherInfo";
-import NewsTab from "@/components/NewsTab";
+import NewsPage from "@/components/NewsPage";
 
 export default function Home() {
   const [location, setLocation] = useState<{ lat: number; lon: number } | null>(
@@ -69,7 +69,7 @@ export default function Home() {
             <WeatherInfo weather={weather} loading={loading} />
           </div>
         </div>
-        <NewsTab />
+        <NewsPage />
       </div>
     </main>
   );
