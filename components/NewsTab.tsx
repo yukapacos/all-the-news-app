@@ -135,9 +135,9 @@ export default function NewsPage() {
             const imageUrl = item.thumbnail;
             const isRead = readLinks.has(item.link);
             const videoId = item.videoId;
+
             return (
               <li key={i} className="flex flex-col gap-2 border-b pb-4">
-                {/* YouTube埋め込み */}
                 {videoId ? (
                   <a
                     href={item.link}
@@ -147,15 +147,14 @@ export default function NewsPage() {
                     className="block"
                   >
                     <VideoCard
-                      videoId={item.videoId}
+                      videoId={videoId}
                       title={item.title}
                       description={item.description}
                       pubDate={item.pubDate}
-                      isRead={readLinks.has(item.link)}
+                      isRead={isRead}
                     />
                   </a>
                 ) : (
-                  // サムネイル付き表示（通常記事）
                   <div className="flex items-start gap-3">
                     {imageUrl && (
                       <img
@@ -188,6 +187,14 @@ export default function NewsPage() {
                       )}
                     </div>
                   </div>
+                )}
+                {!isRead && (
+                  <button
+                    onClick={() => markAsRead(item.link)}
+                    className="self-end text-xs text-gray-600 hover:underline"
+                  >
+                    既読にする
+                  </button>
                 )}
               </li>
             );
